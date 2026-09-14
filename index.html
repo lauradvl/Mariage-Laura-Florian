@@ -1,351 +1,782 @@
-<!doctype html>
-
+```html
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="theme-color" content="#B8B8FF">
-
-<meta
-name="description"
-content="Invitation au mariage de Laura et Florian — 31 juillet 2027"
-
->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laura & Florian — 31 juillet 2027</title>
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+    :root {
+      --lavender: #B8B8FF;
+      --white: #fff;
+      --ink: #7777b8;
+      --font-body: "Montserrat", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--lavender);
+    }
+
+    body {
+      margin: 0;
+      background: var(--lavender);
+      color: var(--white);
+      font-family: var(--font-body);
+    }
+
+    /* =========================
+       COVER
+    ========================= */
+
+    .cover {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--lavender);
+    }
+
+    .cover-image {
+      width: 100%;
+      max-width: 760px;
+      height: 100svh;
+      object-fit: contain;
+      display: block;
+      background: transparent;
+    }
+
+    /* =========================
+       NAVIGATION VERTICALE
+    ========================= */
+
+    .side-nav {
+      position: fixed;
+      top: 50%;
+      right: 28px;
+      transform: translateY(-50%);
+      z-index: 100;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      width: 105px;
+    }
+
+    /* Ligne verticale continue */
+
+    .side-nav-line {
+      position: absolute;
+      top: 7px;
+      bottom: 7px;
+      right: 3px;
+
+      width: 1px;
+      background: rgba(119, 119, 184, 0.28);
+    }
+
+    /* Indicateur qui glisse */
+
+    .side-nav-indicator {
+      position: absolute;
+      right: 0;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--ink);
+
+      transform: translateY(-50%);
+      transition: top 0.45s cubic-bezier(.22, .61, .36, 1),
+                  transform 0.3s ease;
+
+      box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75);
+    }
+
+    .side-nav-list {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      height: 110px;
+      width: 100%;
+    }
+
+    .side-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+
+      color: var(--ink);
+      text-decoration: none;
+
+      opacity: 0.45;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .side-nav-item:hover {
+      opacity: 1;
+      transform: translateX(-3px);
+    }
+
+    .side-nav-item.active {
+      opacity: 1;
+    }
+
+    .side-nav-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+      padding: 50px 20px 30px;
+      background: var(--lavender);
+    }
+
+    .container {
+      width: min(700px, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    p {
+      font-size: clamp(18px, 2.5vw, 21px);
+      line-height: 1.7;
+      margin: 0 0 26px;
+    }
+
+    /* =========================
+       CEREMONIE
+    ========================= */
+
+    .info-card {
+      margin: 0;
+      padding: 32px 24px;
+
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 24px;
+
+      box-shadow: 0 12px 40px rgba(60, 60, 130, 0.08);
+    }
+
+    #ceremony {
+      scroll-margin-top: 30px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       CARTE
+    ========================= */
+
+    .map-frame {
+      width: 100%;
+      overflow: hidden;
+
+      border-radius: 20px;
+      background: white;
+
+      box-shadow: 0 12px 40px rgba(60, 60, 130, 0.10);
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+
+      border: 0;
+    }
+
+    .map-button {
+      display: inline-block;
+
+      margin-top: 18px;
+      padding: 13px 22px;
+
+      background: white;
+      color: var(--ink);
+
+      border-radius: 999px;
+
+      font-weight: 600;
+      text-decoration: none;
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .map-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       RSVP
+    ========================= */
+
+    .rsvp {
+      text-align: center;
+      margin-top: 65px;
+    }
+
+    .rsvp h2 {
+      margin: 0 0 8px;
+
+      font-size: 34px;
+      font-weight: 600;
+    }
+
+    .form-intro {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .form-frame {
+      width: 100%;
+      overflow: hidden;
+
+      border-radius: 24px;
+      background: #fff;
+
+      box-shadow: 0 12px 40px rgba(60, 60, 130, 0.10);
+    }
+
+    .form-frame iframe {
+      display: block;
+      width: 100%;
+      height: 760px;
+
+      border: 0;
+      background: #fff;
+    }
+
+    .fallback {
+      font-size: 13px;
+      margin-top: 14px;
+      opacity: 0.8;
+    }
+
+    .fallback a {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* =========================
+       FIN
+    ========================= */
+
+    .closing-section {
+      padding-top: 55px;
+    }
+
+    .closing {
+      font-size: clamp(18px, 2.5vw, 21px);
+      margin-bottom: 65px;
+    }
+
+    footer {
+      padding: 45px 0 15px;
+
+      opacity: 0.75;
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .cover-image {
+        width: 100%;
+        height: auto;
+        min-height: 100svh;
+        object-fit: contain;
+        background: transparent;
+      }
+
+      .content {
+        padding: 45px 16px 25px;
+      }
+
+      .info-card {
+        padding: 28px 18px;
+      }
+
+      .map-frame {
+        border-radius: 18px;
+      }
+
+      .map-frame iframe {
+        height: 330px;
+      }
+
+      /* Navigation plus discrète sur mobile */
+
+      .side-nav {
+        right: 10px;
+        width: 82px;
+      }
+
+      .side-nav-list {
+        height: 100px;
+      }
+
+      .side-nav-label {
+        font-size: 9px;
+        letter-spacing: 0.06em;
+      }
+
+      .side-nav-item {
+        gap: 10px;
+      }
+
+      .side-nav-line {
+        right: 2.5px;
+      }
+
+      .side-nav-indicator {
+        right: -0.5px;
+        width: 6px;
+        height: 6px;
+      }
+
+      .rsvp {
+        margin-top: 50px;
+      }
+
+      .form-frame {
+        border-radius: 18px;
+      }
+
+      .form-frame iframe {
+        height: 820px;
+      }
+
+      .closing-section {
+        padding-top: 40px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<main id="top">
+  <main id="top">
 
-  <!-- =========================
-       NAVIGATION LATÉRALE
-  ========================== -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
-  <nav
-    class="side-nav"
-    aria-label="Navigation de l'invitation"
-  >
-<a
-  href="#top"
-  class="side-nav-item active"
->
-  <span class="side-nav-label">
-    Accueil
-  </span>
+    <nav class="side-nav" aria-label="Navigation de l'invitation">
 
-  <span class="side-nav-dot"></span>
-</a>
+      <div class="side-nav-line"></div>
 
+      <div class="side-nav-indicator" id="sideNavIndicator"></div>
 
-<a
-  href="#ceremony"
-  class="side-nav-item"
->
-  <span class="side-nav-label">
-    Lieu
-  </span>
+      <div class="side-nav-list">
 
-  <span class="side-nav-dot"></span>
-</a>
+        <a href="#top" class="side-nav-item active" data-section="top">
+          <span class="side-nav-label">Accueil</span>
+        </a>
+
+        <a href="#ceremony" class="side-nav-item" data-section="ceremony">
+          <span class="side-nav-label">Lieu</span>
+        </a>
+
+        <a href="#rsvp" class="side-nav-item" data-section="rsvp">
+          <span class="side-nav-label">RSVP</span>
+        </a>
+
+      </div>
+
+    </nav>
 
 
-<a
-  href="#rsvp"
-  class="side-nav-item"
->
-  <span class="side-nav-label">
-    RSVP
-  </span>
+    <!-- =========================
+         COUVERTURE
+    ========================= -->
 
-  <span class="side-nav-dot"></span>
-</a>
-
-  </nav>
-
-  <!-- =========================
-       COUVERTURE
-  ========================== -->
-
-  <header class="cover">
-
-
-<img
-  src="cover.webp"
-  alt="Invitation de mariage de Laura et Florian"
-  class="cover-image"
->
-
-  </header>
-
-  <!-- =========================
-       CONTENU
-  ========================== -->
-
-  <section class="content">
-
-<div class="container">
-
-
-  <!-- =========================
-       CÉRÉMONIE & LIEU
-  ========================== -->
-
-  <section
-    id="ceremony"
-    class="info-card ceremony"
-  >
-
-    <p class="section-label">
-      La cérémonie
-    </p>
-
-
-    <p>
-      Nous nous retrouverons le
-      <strong>31 juillet 2027 à 17h30</strong>
-      pour notre cérémonie laïque à
-      <strong>la Ferme Lou Méou</strong>.
-    </p>
-
-
-    <!-- CARTE -->
-
-    <div class="map-frame">
-
-      <iframe
-        src="https://www.google.com/maps?q=788%20Chemin%20du%20Méou%2C%20Lauris%2C%20France&output=embed"
-        title="Lieu du mariage — 788 Chemin du Méou, Lauris"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
-    </div>
-
-
-    <!-- ITINÉRAIRE -->
-
-    <a
-      class="map-button"
-      href="https://www.google.com/maps/search/?api=1&query=788+Chemin+du+Méou+Lauris+France"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Voir l'itinéraire →
-    </a>
-
-  </section>
-
-
-  <!-- =========================
-       RSVP
-  ========================== -->
-
-  <section
-    id="rsvp"
-    class="rsvp"
-  >
-
-    <p class="section-label">
-      RSVP
-    </p>
-
-
-    <h2>
-      Serez-vous de la partie ?
-    </h2>
-
-
-    <p class="form-intro">
-      Merci de nous confirmer votre présence
-      avant le <strong>XX</strong>.
-    </p>
-
-
-    <!-- FORMULAIRE -->
-
-    <div class="form-frame">
-
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfbp3mYHe9bm3ht_ShqFoUa-yeLyNMFzde2g4cg4UjNsjActw/viewform?embedded=true"
-        title="Formulaire RSVP — Mariage Laura & Florian"
-        loading="lazy"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
+    <header class="cover">
+      <img
+        src="cover.webp"
+        alt="Invitation de mariage de Laura et Florian"
+        class="cover-image"
       >
-        Chargement du formulaire…
-      </iframe>
-
-    </div>
+    </header>
 
 
-    <!-- LIEN DE SECOURS -->
+    <!-- =========================
+         CONTENU
+    ========================= -->
 
-    <p class="fallback">
+    <section class="content">
 
-      Le formulaire ne s'affiche pas ?
+      <div class="container">
 
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfbp3mYHe9bm3ht_ShqFoUa-yeLyNMFzde2g4cg4UjNsjActw/viewform"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ouvrir le formulaire directement
-      </a>
+        <!-- CEREMONIE / LIEU -->
 
-    </p>
+        <section id="ceremony" class="info-card ceremony">
 
-  </section>
+          <p class="section-label">La cérémonie</p>
+
+          <p>
+            Nous nous retrouverons le
+            <strong>31 juillet 2027 à 17h30</strong>
+            pour notre cérémonie laïque à
+            <strong>la Ferme Lou Méou</strong>.
+          </p>
+
+          <div class="map-frame">
+
+            <iframe
+              src="https://www.google.com/maps?q=788%20Chemin%20du%20Méou%2C%20Lauris%2C%20France&output=embed"
+              title="Lieu du mariage — 788 Chemin du Méou, Lauris"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+          </div>
+
+          <a
+            class="map-button"
+            href="https://www.google.com/maps/search/?api=1&query=788+Chemin+du+Méou+Lauris+France"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir l'itinéraire →
+          </a>
+
+        </section>
+
+
+        <!-- RSVP -->
+
+        <section id="rsvp" class="rsvp">
+
+          <p class="section-label">RSVP</p>
+
+          <h2>Serez-vous de la partie ?</h2>
+
+          <p class="form-intro">
+            Merci de nous confirmer votre présence
+            avant le <strong>XX</strong>.
+          </p>
+
+          <div class="form-frame">
+
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfbp3mYHe9bm3ht_ShqFoUa-yeLyNMFzde2g4cg4UjNsjActw/viewform?embedded=true"
+              title="Formulaire RSVP — Mariage Laura & Florian"
+              loading="lazy"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            >
+              Chargement du formulaire…
+            </iframe>
+
+          </div>
+
+          <p class="fallback">
+            Le formulaire ne s'affiche pas ?
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfbp3mYHe9bm3ht_ShqFoUa-yeLyNMFzde2g4cg4UjNsjActw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ouvrir le formulaire directement
+            </a>
+          </p>
+
+        </section>
+
+
+        <!-- MESSAGE FINAL -->
+
+        <section class="closing-section">
+
+          <p class="closing">
+            On a hâte de partager cette belle journée
+            avec vous ♡
+          </p>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+          <span>Laura & Florian</span>
+          <span>·</span>
+          <span>31.07.2027</span>
+        </footer>
+
+      </div>
+
+    </section>
+
+  </main>
 
 
   <!-- =========================
-       CONCLUSION
-  ========================== -->
+       NAVIGATION / SCROLL SPY
+  ========================= -->
 
-  <section class="closing-section">
+  <script>
 
-    <p class="closing">
-      On a hâte de partager cette belle journée
-      avec vous ♡
-    </p>
+    /*
+      Empêche le navigateur de restaurer une ancienne
+      position de scroll lors du chargement.
+    */
 
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    <span>
-      Laura & Florian
-    </span>
-
-    <span>
-      ·
-    </span>
-
-    <span>
-      31.07.2027
-    </span>
-
-  </footer>
-
-
-</div>
-
-  </section>
-
-</main>
-
-<!-- =========================
-     NAVIGATION ACTIVE
-========================== -->
-
-<script>
-
-  /*
-   * Empêche le navigateur de restaurer
-   * une ancienne position de scroll.
-   */
-
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
-
-
-  window.addEventListener("load", () => {
-
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
     }
 
-  });
+    window.addEventListener("load", () => {
+
+      if (!window.location.hash) {
+        window.scrollTo(0, 0);
+      }
+
+      updateNavigation();
+
+    });
 
 
-  /*
-   * Gestion de la navigation active.
-   */
+    const navItems = [
+      {
+        id: "top",
+        link: document.querySelector('[data-section="top"]')
+      },
+      {
+        id: "ceremony",
+        link: document.querySelector('[data-section="ceremony"]')
+      },
+      {
+        id: "rsvp",
+        link: document.querySelector('[data-section="rsvp"]')
+      }
+    ];
 
-  const sections = [
-    {
-      id: "top",
-      link: document.querySelector(
-        '.side-nav-item[href="#top"]'
-      )
-    },
-    {
-      id: "ceremony",
-      link: document.querySelector(
-        '.side-nav-item[href="#ceremony"]'
-      )
-    },
-    {
-      id: "rsvp",
-      link: document.querySelector(
-        '.side-nav-item[href="#rsvp"]'
-      )
+
+    const indicator = document.getElementById("sideNavIndicator");
+    const navList = document.querySelector(".side-nav-list");
+
+
+    /*
+      Positionne le petit indicateur exactement
+      à hauteur de l'élément actif.
+    */
+
+    function moveIndicator(activeLink) {
+
+      if (!activeLink || !indicator || !navList) {
+        return;
+      }
+
+      const navRect = navList.getBoundingClientRect();
+      const itemRect = activeLink.getBoundingClientRect();
+
+      const itemCenter =
+        itemRect.top +
+        itemRect.height / 2 -
+        navRect.top;
+
+      indicator.style.top = `${itemCenter}px`;
     }
-  ];
 
 
-  const observer = new IntersectionObserver(
-    (entries) => {
+    /*
+      Détermine la section actuellement visible.
+      On utilise le milieu de l'écran pour que la navigation
+      change naturellement pendant le scroll.
+    */
 
-      entries.forEach((entry) => {
+    function updateNavigation() {
 
-        if (!entry.isIntersecting) {
+      const viewportCenter = window.innerHeight / 2;
+
+      let currentSection = "top";
+      let closestDistance = Infinity;
+
+      navItems.forEach(item => {
+
+        const element = document.getElementById(item.id);
+
+        if (!element) {
           return;
         }
 
+        const rect = element.getBoundingClientRect();
 
-        sections.forEach((section) => {
+        /*
+          La section est considérée comme active lorsqu'elle
+          traverse la zone centrale de l'écran.
+        */
 
-          if (section.link) {
-            section.link.classList.remove("active");
-          }
+        const sectionCenter =
+          rect.top + rect.height / 2;
 
-        });
+        const distance =
+          Math.abs(sectionCenter - viewportCenter);
 
+        /*
+          Pour "top", on veut surtout conserver Accueil
+          pendant la couverture.
+        */
 
-        const current = sections.find(
-          section => section.id === entry.target.id
-        );
+        if (
+          item.id === "top" &&
+          window.scrollY < window.innerHeight * 0.45
+        ) {
+          currentSection = "top";
+          closestDistance = 0;
+          return;
+        }
 
+        if (
+          item.id !== "top" &&
+          rect.top <= viewportCenter &&
+          rect.bottom >= viewportCenter
+        ) {
+          currentSection = item.id;
+          closestDistance = 0;
+        }
 
-        if (current && current.link) {
-          current.link.classList.add("active");
+        else if (
+          distance < closestDistance &&
+          window.scrollY >= window.innerHeight * 0.45
+        ) {
+          currentSection = item.id;
+          closestDistance = distance;
         }
 
       });
 
-    },
-    {
-      rootMargin: "-45% 0px -45% 0px",
-      threshold: 0
+
+      /*
+        Mise à jour visuelle des liens.
+      */
+
+      navItems.forEach(item => {
+
+        if (!item.link) {
+          return;
+        }
+
+        item.link.classList.toggle(
+          "active",
+          item.id === currentSection
+        );
+
+      });
+
+
+      const activeItem =
+        navItems.find(item => item.id === currentSection);
+
+      if (activeItem) {
+        moveIndicator(activeItem.link);
+      }
+
     }
-  );
 
 
-  sections.forEach((section) => {
+    /*
+      Mise à jour pendant le scroll.
+    */
 
-    const element = document.getElementById(section.id);
+    let ticking = false;
 
-    if (element) {
-      observer.observe(element);
-    }
+    window.addEventListener("scroll", () => {
 
-  });
+      if (!ticking) {
 
-</script>
+        window.requestAnimationFrame(() => {
+          updateNavigation();
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+
+    }, { passive: true });
+
+
+    /*
+      Recalcule la position de l'indicateur
+      lorsque la taille de l'écran change.
+    */
+
+    window.addEventListener("resize", updateNavigation);
+
+
+    /*
+      Navigation fluide au clic.
+    */
+
+    navItems.forEach(item => {
+
+      if (!item.link) {
+        return;
+      }
+
+      item.link.addEventListener("click", () => {
+
+        navItems.forEach(navItem => {
+
+          if (navItem.link) {
+            navItem.link.classList.remove("active");
+          }
+
+        });
+
+        item.link.classList.add("active");
+
+        moveIndicator(item.link);
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
+```
