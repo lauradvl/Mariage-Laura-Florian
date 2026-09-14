@@ -453,6 +453,8 @@ footer {
     height:100svh;
     min-height:100svh;
     object-fit:contain;
+       background:transparent;
+
   }
 
   .content {
