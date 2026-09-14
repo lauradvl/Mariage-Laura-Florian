@@ -51,7 +51,7 @@ CONTENU
 ========================= */
 
 .content {
-padding: 72px 20px 30px;
+padding: 60px 20px 30px;
 background: var(--lavender);
 }
 
@@ -71,12 +71,16 @@ margin: 0 0 26px;
 INTRODUCTION
 ========================= */
 
+.intro-section {
+margin-bottom: 42px;
+}
+
 .intro {
 font-size: clamp(18px, 2.5vw, 21px);
 }
 
 /* =========================
-RSVP / TITRES
+TITRE RSVP
 ========================= */
 
 .rsvp h2 {
@@ -114,11 +118,11 @@ margin-bottom: 10px;
 }
 
 /* =========================
-CARTES
+BLOC CÉRÉMONIE
 ========================= */
 
 .info-card {
-margin: 55px 0;
+margin: 0;
 padding: 32px 24px;
 background: rgba(255, 255, 255, .15);
 border: 1px solid rgba(255, 255, 255, .25);
@@ -176,7 +180,7 @@ GOOGLE MAPS
 ========================= */
 
 .location {
-margin: 70px 0;
+margin: 60px 0;
 }
 
 .location-intro {
@@ -231,14 +235,13 @@ opacity: .75;
 }
 
 /* =========================
-FLÈCHES DE NAVIGATION
+FLÈCHE DE LA COVER
 ========================= */
 
 .scroll-arrow {
 position: absolute;
-bottom: 20px;
+bottom: 24px;
 left: 50%;
-transform: translateX(-50%);
 
 display: flex;
 align-items: center;
@@ -254,52 +257,75 @@ font-weight: 400;
 
 opacity: .85;
 
-animation: arrow-bounce 1.8s ease-in-out infinite;
-
 z-index: 2;
+
+animation: cover-arrow-move 1.8s ease-in-out infinite;
 }
 
 .scroll-arrow:hover {
 opacity: 1;
 }
 
-@keyframes arrow-bounce {
-0%,
-100% {
-transform: translate(-50%, 0);
-}
-
-50% {
-transform: translate(-50%, 7px);
-}
-}
-
-/* Flèche entre les sections */
+/* =========================
+FLÈCHE ENTRE LES SECTIONS
+========================= */
 
 .section-arrow {
 position: relative;
 left: auto;
 bottom: auto;
+
+margin: 26px auto 38px;
+
 transform: none;
 
-margin: -20px auto 45px;
-
-animation-name: section-arrow-bounce;
+animation: section-arrow-move 1.8s ease-in-out infinite;
 }
 
-.section-arrow:hover {
-transform: translateY(3px);
-}
+/* =========================
+ANIMATION FLÈCHE COVER
+========================= */
 
-@keyframes section-arrow-bounce {
-0%,
-100% {
-transform: translateY(0);
+@keyframes cover-arrow-move {
+
+0% {
+transform: translate(-50%, 0);
+opacity: .55;
 }
 
 50% {
-transform: translateY(7px);
+transform: translate(-50%, 8px);
+opacity: 1;
 }
+
+100% {
+transform: translate(-50%, 0);
+opacity: .55;
+}
+
+}
+
+/* =========================
+ANIMATION FLÈCHE RSVP
+========================= */
+
+@keyframes section-arrow-move {
+
+0% {
+transform: translateY(0);
+opacity: .55;
+}
+
+50% {
+transform: translateY(8px);
+opacity: 1;
+}
+
+100% {
+transform: translateY(0);
+opacity: .55;
+}
+
 }
 
 /* =========================
@@ -308,6 +334,7 @@ RSVP
 
 .rsvp {
 text-align: center;
+padding-top: 0;
 }
 
 .form-intro {
@@ -347,7 +374,7 @@ CONCLUSION
 ========================= */
 
 .closing-section {
-padding-top: 20px;
+padding-top: 35px;
 }
 
 .closing {
@@ -380,8 +407,16 @@ background: transparent;
 }
 
 .content {
-padding-top: 55px;
+padding-top: 50px;
 background: var(--lavender);
+}
+
+.intro-section {
+margin-bottom: 35px;
+}
+
+.info-card {
+padding: 28px 18px;
 }
 
 .map-frame {
@@ -392,12 +427,20 @@ border-radius: 18px;
 height: 330px;
 }
 
+.section-arrow {
+margin: 22px auto 34px;
+}
+
 .form-frame {
 border-radius: 18px;
 }
 
 .form-frame iframe {
 height: 820px;
+}
+
+.closing-section {
+padding-top: 30px;
 }
 
 }
