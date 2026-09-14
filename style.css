@@ -1,4 +1,14 @@
 -@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap');
+html,
+body {
+  background: #B8B8FF !important;
+  color: white !important;
+}
+
+body * {
+  color: white !important;
+}
+
 
 :root {
   --lavender: #B8B8FF;
