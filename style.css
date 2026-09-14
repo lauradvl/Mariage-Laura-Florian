@@ -45,19 +45,19 @@ body {
 ========================= */
 
 .cover {
-  min-height:100svh;
-  display:grid;
-  place-items:center;
-  position:relative;
-  overflow:hidden;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .cover-image {
-  width:100%;
-  max-width:760px;
-  height:100svh;
-  object-fit:contain;
-  display:block;
+  width: 100%;
+  max-width: 760px;
+  height: 100svh;
+  object-fit: contain;
+  display: block;
 }
 
 
