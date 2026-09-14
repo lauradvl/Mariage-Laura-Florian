@@ -7,10 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="theme-color" content="#B8B8FF">
-  <meta
-    name="description"
-    content="Invitation au mariage de Laura et Florian — 31 juillet 2027"
-  >
+
+<meta
+name="description"
+content="Invitation au mariage de Laura et Florian — 31 juillet 2027"
+
+>
 
   <title>Laura & Florian — 31 juillet 2027</title>
 
@@ -19,9 +21,56 @@
 
 <body>
 
-<main>
+<main id="top">
 
-  <!-- COUVERTURE -->
+  <!-- =========================
+       NAVIGATION LATÉRALE
+  ========================== -->
+
+  <nav
+    class="side-nav"
+    aria-label="Navigation de l'invitation"
+  >
+<a
+  href="#top"
+  class="side-nav-item active"
+>
+  <span class="side-nav-label">
+    Accueil
+  </span>
+
+  <span class="side-nav-dot"></span>
+</a>
+
+
+<a
+  href="#ceremony"
+  class="side-nav-item"
+>
+  <span class="side-nav-label">
+    Lieu
+  </span>
+
+  <span class="side-nav-dot"></span>
+</a>
+
+
+<a
+  href="#rsvp"
+  class="side-nav-item"
+>
+  <span class="side-nav-label">
+    RSVP
+  </span>
+
+  <span class="side-nav-dot"></span>
+</a>
+
+  </nav>
+
+  <!-- =========================
+       COUVERTURE
+  ========================== -->
 
   <header class="cover">
 
@@ -32,36 +81,30 @@
   class="cover-image"
 >
 
-<!-- FLÈCHE VERS LA DATE ET LE LIEU -->
-<a
-href="#ceremony"
-class="side-navigation"
-aria-label="Voir la date et le lieu"
-
-<span class="side-navigation-label">
-  Voir la date &amp; le lieu
-</span>
-
-<span class="side-navigation-arrow">
-  →
-</span>
-</a>
-
   </header>
 
-  <!-- CONTENU -->
+  <!-- =========================
+       CONTENU
+  ========================== -->
 
   <section class="content">
 
 <div class="container">
 
 
-  <!-- CÉRÉMONIE & LIEU -->
-  <section id="ceremony" class="info-card ceremony">
+  <!-- =========================
+       CÉRÉMONIE & LIEU
+  ========================== -->
+
+  <section
+    id="ceremony"
+    class="info-card ceremony"
+  >
 
     <p class="section-label">
       La cérémonie
     </p>
+
 
     <p>
       Nous nous retrouverons le
@@ -72,6 +115,7 @@ aria-label="Voir la date et le lieu"
 
 
     <!-- CARTE -->
+
     <div class="map-frame">
 
       <iframe
@@ -85,6 +129,8 @@ aria-label="Voir la date et le lieu"
     </div>
 
 
+    <!-- ITINÉRAIRE -->
+
     <a
       class="map-button"
       href="https://www.google.com/maps/search/?api=1&query=788+Chemin+du+Méou+Lauris+France"
@@ -97,45 +143,32 @@ aria-label="Voir la date et le lieu"
   </section>
 
 
- <!-- NAVIGATION VERS LE RSVP -->
+  <!-- =========================
+       RSVP
+  ========================== -->
 
-<a
-href="#rsvp"
-class="side-navigation section-navigation"
-aria-label="Voir le formulaire RSVP"
-
->
-
-  <span class="side-navigation-label">
-    RSVP
-  </span>
-
-  <span class="side-navigation-arrow">
-    →
-  </span>
-</a>
-
-<!-- RSVP -->
-
-<section id="rsvp" class="rsvp">
-
-
-  <!-- RSVP -->
-  <section id="rsvp" class="rsvp">
+  <section
+    id="rsvp"
+    class="rsvp"
+  >
 
     <p class="section-label">
       RSVP
     </p>
 
+
     <h2>
       Serez-vous de la partie ?
     </h2>
+
 
     <p class="form-intro">
       Merci de nous confirmer votre présence
       avant le <strong>XX</strong>.
     </p>
 
+
+    <!-- FORMULAIRE -->
 
     <div class="form-frame">
 
@@ -145,15 +178,20 @@ aria-label="Voir le formulaire RSVP"
         loading="lazy"
         frameborder="0"
         marginheight="0"
-        marginwidth="0">
+        marginwidth="0"
+      >
         Chargement du formulaire…
       </iframe>
 
     </div>
 
 
+    <!-- LIEN DE SECOURS -->
+
     <p class="fallback">
+
       Le formulaire ne s'affiche pas ?
+
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSfbp3mYHe9bm3ht_ShqFoUa-yeLyNMFzde2g4cg4UjNsjActw/viewform"
         target="_blank"
@@ -161,12 +199,16 @@ aria-label="Voir le formulaire RSVP"
       >
         Ouvrir le formulaire directement
       </a>
+
     </p>
 
   </section>
 
 
-  <!-- CONCLUSION -->
+  <!-- =========================
+       CONCLUSION
+  ========================== -->
+
   <section class="closing-section">
 
     <p class="closing">
@@ -177,12 +219,26 @@ aria-label="Voir le formulaire RSVP"
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
-    <span>Laura & Florian</span>
-    <span>·</span>
-    <span>31.07.2027</span>
+
+    <span>
+      Laura & Florian
+    </span>
+
+    <span>
+      ·
+    </span>
+
+    <span>
+      31.07.2027
+    </span>
+
   </footer>
+
 
 </div>
 
@@ -190,21 +246,105 @@ aria-label="Voir le formulaire RSVP"
 
 </main>
 
-<!--
-  Empêche le navigateur de restaurer automatiquement
-  l'ancienne position de scroll lors du chargement.
--->
+<!-- =========================
+     NAVIGATION ACTIVE
+========================== -->
 
 <script>
+
+  /*
+   * Empêche le navigateur de restaurer
+   * une ancienne position de scroll.
+   */
+
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
 
+
   window.addEventListener("load", () => {
+
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
+
   });
+
+
+  /*
+   * Gestion de la navigation active.
+   */
+
+  const sections = [
+    {
+      id: "top",
+      link: document.querySelector(
+        '.side-nav-item[href="#top"]'
+      )
+    },
+    {
+      id: "ceremony",
+      link: document.querySelector(
+        '.side-nav-item[href="#ceremony"]'
+      )
+    },
+    {
+      id: "rsvp",
+      link: document.querySelector(
+        '.side-nav-item[href="#rsvp"]'
+      )
+    }
+  ];
+
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+
+        sections.forEach((section) => {
+
+          if (section.link) {
+            section.link.classList.remove("active");
+          }
+
+        });
+
+
+        const current = sections.find(
+          section => section.id === entry.target.id
+        );
+
+
+        if (current && current.link) {
+          current.link.classList.add("active");
+        }
+
+      });
+
+    },
+    {
+      rootMargin: "-45% 0px -45% 0px",
+      threshold: 0
+    }
+  );
+
+
+  sections.forEach((section) => {
+
+    const element = document.getElementById(section.id);
+
+    if (element) {
+      observer.observe(element);
+    }
+
+  });
+
 </script>
 
 </body>
