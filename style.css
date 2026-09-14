@@ -89,10 +89,6 @@ border-radius: 24px;
 box-shadow: 0 12px 40px rgba(60, 60, 130, .08);
 }
 
-/*
-L'ancre arrive exactement au début
-du bloc cérémonie.
-*/
 #ceremony {
 scroll-margin-top: 0;
 }
@@ -346,34 +342,24 @@ border-radius: 18px;
 height: 330px;
 }
 
-/*
-Sur mobile, la flèche reste
-sur le côté mais est légèrement
-plus proche du bord.
-*/
+
 .scroll-arrow {
 right: 12px;
 bottom: 24px;
 
-```
 width: 54px;
 height: 54px;
 
 font-size: 38px;
-```
-
 }
 
 .section-arrow {
 margin: 18px 12px 36px auto;
 
-```
 width: 54px;
 height: 54px;
 
 font-size: 38px;
-```
-
 }
 
 .form-frame {
