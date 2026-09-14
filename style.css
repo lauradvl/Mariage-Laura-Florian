@@ -1,3 +1,4 @@
+```css
 /* =========================
    POLICES
 ========================= */
@@ -10,13 +11,12 @@
 ========================= */
 
 :root {
-  --lavender: #B8B8FF;
-  --white: #fff;
-  --ink: #7777b8;
+  --lavender:#B8B8FF;
+  --white:#fff;
+  --ink:#7777b8;
 
-  /* Typographies */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Montserrat", system-ui, sans-serif;
+  --font-body:"Montserrat",system-ui,sans-serif;
+  --font-display:"Cormorant Garamond",Georgia,serif;
 }
 
 
@@ -25,70 +25,64 @@
 ========================= */
 
 * {
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior:smooth;
 }
 
 body {
-  margin: 0;
-  background: var(--lavender);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
+  margin:0;
+  background:var(--lavender);
+  color:var(--white);
+  font-family:var(--font-body);
 }
 
 
 /* =========================
    COUVERTURE
-   Asia Tiger reste dans cover.pdf
 ========================= */
 
 .cover {
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
 }
 
 .cover-image {
-  width: 100%;
-  max-width: 760px;
-  height: 100svh;
-  object-fit: contain;
-  display: block;
+  width:100%;
+  max-width:760px;
+  height:100svh;
+  object-fit:contain;
+  display:block;
 }
 
 
 /* =========================
-   INDICATION DE SCROLL
+   SCROLL
 ========================= */
 
 .scroll-hint {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  color: white;
-  text-decoration: none;
-
-  font-size: 28px;
-
-  animation: bounce 1.8s infinite;
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  text-decoration:none;
+  font-size:28px;
+  animation:bounce 1.8s infinite;
 }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translate(-50%, 0);
+  0%,100% {
+    transform:translate(-50%,0)
   }
 
   50% {
-    transform: translate(-50%, 7px);
+    transform:translate(-50%,7px)
   }
 }
 
@@ -98,13 +92,13 @@ body {
 ========================= */
 
 .content {
-  padding: 72px 20px 30px;
+  padding:72px 20px 30px;
 }
 
 .container {
-  width: min(700px, 100%);
-  margin: auto;
-  text-align: center;
+  width:min(700px,100%);
+  margin:auto;
+  text-align:center;
 }
 
 
@@ -113,226 +107,55 @@ body {
 ========================= */
 
 p {
-  font-family: var(--font-body);
-  font-size: clamp(16px, 2.5vw, 18px);
-  line-height: 1.75;
-  margin: 0 0 26px;
+  font-size:clamp(18px,2.5vw,21px);
+  line-height:1.7;
+  margin:0 0 26px;
 }
+
+
+/* Intro : Cormorant Garamond */
 
 .intro {
-  font-family: var(--font-display);
-  font-size: clamp(25px, 4vw, 32px);
-  line-height: 1.35;
-  font-weight: 500;
-  margin-bottom: 26px;
+  font-family:var(--font-display);
+  font-size:clamp(21px,3vw,27px);
 }
+
+
+/* =========================
+   SÉPARATEUR
+========================= */
 
 .separator {
-  font-family: var(--font-display);
-  font-size: 30px;
-  margin: 28px 0;
+  font-family:var(--font-display);
+  font-size:30px;
+  margin:28px 0;
 }
 
 
 /* =========================
-   LABELS DE SECTION
+   BOUTON
 ========================= */
-
-.section-label {
-  margin: 0 0 10px;
-
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-
-  letter-spacing: .16em;
-  text-transform: uppercase;
-
-  opacity: .75;
-}
-
-
-/* =========================
-   TITRES
-========================= */
-
-.info-card h2,
-.location h2,
-.rsvp h2 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: .01em;
-}
-
-.info-card h2,
-.location h2 {
-  margin: 0 0 12px;
-  font-size: clamp(30px, 5vw, 40px);
-  line-height: 1.15;
-}
-
-.rsvp h2 {
-  margin: 0 0 10px;
-  font-size: clamp(32px, 5vw, 42px);
-  line-height: 1.1;
-}
-
-
-/* =========================
-   BOUTONS
-========================= */
-
-.button,
-.map-button {
-  display: inline-block;
-
-  border-radius: 999px;
-
-  background: white;
-  color: var(--ink);
-
-  padding: 14px 23px;
-
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-
-  letter-spacing: .01em;
-
-  text-decoration: none;
-}
 
 .button {
-  margin: 10px 0 44px;
-}
-
-.map-button {
-  margin-top: 18px;
-}
-
-
-/* =========================
-   CARTE D'INFORMATION
-========================= */
-
-.info-card {
-  margin: 55px 0;
-  padding: 32px 24px;
-
-  background: rgba(255,255,255,.15);
-
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 24px;
-
-  box-shadow: 0 12px 40px rgba(60,60,130,.08);
+  display:inline-block;
+  border-radius:999px;
+  background:white;
+  color:var(--ink);
+  padding:15px 24px;
+  font-weight:600;
+  text-decoration:none;
+  margin:10px 0 44px;
 }
 
 
 /* =========================
-   LISTE D'INFORMATIONS
+   CONCLUSION
 ========================= */
 
-.info-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  padding: 14px 16px;
-
-  background: rgba(255,255,255,.15);
-  border-radius: 16px;
-
-  text-align: left;
-}
-
-.info-icon {
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-
-  display: grid;
-  place-items: center;
-
-  background: white;
-  color: var(--ink);
-
-  border-radius: 50%;
-}
-
-.info-item strong,
-.info-item span {
-  display: block;
-}
-
-.info-item strong {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.info-item span {
-  font-family: var(--font-body);
-  font-size: 13px;
-  opacity: .75;
-}
-
-
-/* =========================
-   ADRESSE
-========================= */
-
-.location-address {
-  margin: 28px 0 24px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-
-  font-family: var(--font-body);
-  font-size: 14px;
-}
-
-.location-address span {
-  opacity: .75;
-}
-
-
-/* =========================
-   GOOGLE MAPS
-========================= */
-
-.location {
-  margin: 70px 0;
-}
-
-.location-intro {
-  max-width: 580px;
-  margin: 0 auto 28px;
-}
-
-.map-frame {
-  width: 100%;
-  overflow: hidden;
-
-  border-radius: 24px;
-  background: white;
-
-  box-shadow: 0 12px 40px rgba(60,60,130,.10);
-}
-
-.map-frame iframe {
-  display: block;
-
-  width: 100%;
-  height: 380px;
-
-  border: 0;
+.closing {
+  font-family:var(--font-display);
+  font-size:clamp(22px,3vw,28px);
+  margin-bottom:65px;
 }
 
 
@@ -341,46 +164,182 @@ p {
 ========================= */
 
 .rsvp {
-  text-align: center;
+  text-align:center;
 }
 
+
+/* Titre RSVP : Cormorant Garamond */
+
+.rsvp h2 {
+  font-family:var(--font-display);
+  margin:0 0 8px;
+  font-size:34px;
+}
+
+
+/* Texte formulaire : Montserrat */
+
 .form-intro {
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size:16px;
+  margin-bottom:24px;
 }
 
 .form-frame {
-  width: 100%;
-  overflow: hidden;
-
-  border-radius: 24px;
-  background: #fff;
-
-  box-shadow: 0 12px 40px rgba(60,60,130,.10);
+  width:100%;
+  overflow:hidden;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 12px 40px rgba(60,60,130,.10);
 }
 
 .form-frame iframe {
-  display: block;
-
-  width: 100%;
-  height: 760px;
-
-  border: 0;
-  background: #fff;
+  display:block;
+  width:100%;
+  height:760px;
+  border:0;
+  background:#fff;
 }
 
 .fallback {
-  font-family: var(--font-body);
-  font-size: 12px;
-  margin-top: 14px;
-  opacity: .8;
+  font-size:13px;
+  margin-top:14px;
+  opacity:.8;
 }
 
 .fallback a {
-  color: white;
-  font-weight: 600;
+  color:white;
+  font-weight:600;
+}
+
+
+/* =========================
+   NOUVELLES SECTIONS
+========================= */
+
+.section-label {
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.75;
+  margin-bottom:10px;
+}
+
+
+/* Titres : Cormorant Garamond */
+
+.info-card h2,
+.location h2 {
+  font-family:var(--font-display);
+  margin:0 0 12px;
+  font-size:clamp(28px,5vw,36px);
+  font-weight:500;
+}
+
+
+.info-card {
+  margin:55px 0;
+  padding:32px 24px;
+
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:24px;
+
+  box-shadow:0 12px 40px rgba(60,60,130,.08);
+}
+
+
+.info-list {
+  display:grid;
+  gap:12px;
+  margin-top:28px;
+}
+
+.info-item {
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding:14px 16px;
+
+  background:rgba(255,255,255,.15);
+  border-radius:16px;
+
+  text-align:left;
+}
+
+.info-icon {
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+
+  display:grid;
+  place-items:center;
+
+  background:white;
+  color:var(--ink);
+
+  border-radius:50%;
+}
+
+.info-item strong,
+.info-item span {
+  display:block;
+}
+
+.info-item strong {
+  font-size:15px;
+}
+
+.info-item span {
+  font-size:14px;
+  opacity:.75;
+}
+
+
+/* =========================
+   GOOGLE MAPS
+========================= */
+
+.location {
+  margin:70px 0;
+}
+
+.location-intro {
+  max-width:580px;
+  margin:0 auto 28px;
+}
+
+.map-frame {
+  width:100%;
+  overflow:hidden;
+
+  border-radius:24px;
+  background:white;
+
+  box-shadow:0 12px 40px rgba(60,60,130,.10);
+}
+
+.map-frame iframe {
+  display:block;
+  width:100%;
+  height:380px;
+  border:0;
+}
+
+.map-button {
+  display:inline-block;
+
+  margin-top:18px;
+  padding:13px 22px;
+
+  border-radius:999px;
+
+  background:white;
+  color:var(--ink);
+
+  font-weight:600;
+  text-decoration:none;
 }
 
 
@@ -389,39 +348,77 @@ p {
 ========================= */
 
 .closing-section {
-  padding-top: 20px;
-}
-
-.closing {
-  font-family: var(--font-display);
-  font-size: clamp(25px, 4vw, 32px);
-  line-height: 1.35;
-  font-weight: 500;
-
-  margin-bottom: 65px;
+  padding-top:20px;
 }
 
 .signature {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 500;
-  margin-top: 28px;
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:500;
+  margin-top:28px;
 }
 
 
 /* =========================
-   FOOTER
+   ADRESSE
 ========================= */
 
-footer {
-  padding: 45px 0 15px;
+.location-address {
+  margin:28px 0 24px;
 
-  font-family: var(--font-body);
-  font-size: 11px;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
 
-  letter-spacing: .08em;
+  font-size:16px;
+}
 
-  opacity: .75;
+.location-address span {
+  opacity:.75;
+}
+
+
+/* =========================
+   CARTE
+========================= */
+
+.map-frame {
+  width:100%;
+  overflow:hidden;
+
+  border-radius:20px;
+  background:white;
+
+  box-shadow:0 12px 40px rgba(60,60,130,.10);
+}
+
+.map-frame iframe {
+  display:block;
+
+  width:100%;
+  height:380px;
+
+  border:0;
+}
+
+
+/* =========================
+   BOUTON ITINÉRAIRE
+========================= */
+
+.map-button {
+  display:inline-block;
+
+  margin-top:18px;
+  padding:13px 22px;
+
+  background:white;
+  color:var(--ink);
+
+  border-radius:999px;
+
+  font-weight:600;
+  text-decoration:none;
 }
 
 
@@ -429,49 +426,44 @@ footer {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
-
-  .cover-image {
-    width: 100%;
-    height: auto;
-    min-height: 100svh;
-    object-fit: cover;
-  }
-
-  .content {
-    padding-top: 55px;
-  }
+@media(max-width:600px) {
 
   .scroll-hint {
-    bottom: 20px;
-  }
-
-  .info-card {
-    padding: 28px 20px;
-    border-radius: 20px;
+    bottom:20px;
+    gap:12px;
   }
 
   .map-frame {
-    border-radius: 18px;
+    border-radius:18px;
   }
 
   .map-frame iframe {
-    height: 330px;
+    height:330px;
+  }
+
+}
+
+
+@media(max-width:600px) {
+
+  .cover-image {
+    width:100%;
+    height:auto;
+    min-height:100svh;
+    object-fit:cover;
+  }
+
+  .content {
+    padding-top:55px;
   }
 
   .form-frame {
-    border-radius: 18px;
+    border-radius:18px;
   }
 
   .form-frame iframe {
-    height: 820px;
+    height:820px;
   }
 
-  .intro {
-    font-size: 27px;
-  }
-
-  .closing {
-    font-size: 27px;
-  }
 }
+```
