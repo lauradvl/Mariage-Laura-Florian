@@ -15,7 +15,6 @@
 html {
 scroll-behavior: smooth;
 background: var(--lavender);
-scroll-padding-top: 0;
 }
 
 body {
@@ -70,10 +69,6 @@ p {
 font-size: clamp(18px, 2.5vw, 21px);
 line-height: 1.7;
 margin: 0 0 26px;
-}
-
-.intro {
-font-size: clamp(18px, 2.5vw, 21px);
 }
 
 /* =========================
@@ -141,106 +136,109 @@ opacity: .9;
 }
 
 /* =========================
-FLÈCHE
+NAVIGATION LATÉRALE
 ========================= */
 
-
-.scroll-arrow {
+.side-navigation {
 position: absolute;
+
 right: 28px;
-bottom: 32px;
+top: 50%;
+
+transform: translateY(-50%);
 
 display: flex;
 align-items: center;
-justify-content: center;
-
-width: 58px;
-height: 58px;
+gap: 10px;
 
 color: white;
 text-decoration: none;
 
-font-size: 40px;
-font-weight: 400;
-line-height: 1;
+z-index: 20;
 
-opacity: .85;
-
-z-index: 10;
-
-animation: arrow-move 1.8s ease-in-out infinite;
+opacity: .8;
 
 transition:
-opacity .25s ease,
-transform .25s ease;
+opacity .3s ease,
+transform .3s ease;
 }
 
-.scroll-arrow:hover {
+/* Texte */
+
+.side-navigation-label {
+font-size: 12px;
+font-weight: 500;
+letter-spacing: .08em;
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+/* Flèche */
+
+.side-navigation-arrow {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 48px;
+height: 48px;
+
+font-size: 34px;
+font-weight: 300;
+line-height: 1;
+
+border: 1px solid rgba(255, 255, 255, .65);
+border-radius: 50%;
+
+animation: navigation-arrow 1.8s ease-in-out infinite;
+}
+
+/* Hover */
+
+.side-navigation:hover {
 opacity: 1;
 }
 
+.side-navigation:hover .side-navigation-arrow {
+animation-play-state: paused;
+}
+
 /* =========================
-FLÈCHE ENTRE LES SECTIONS
+ANIMATION
 ========================= */
 
-.section-arrow {
+@keyframes navigation-arrow {
+
+0%,
+100% {
+transform: translateX(0);
+}
+
+50% {
+transform: translateX(7px);
+}
+
+}
+
+/* =========================
+NAVIGATION APRÈS LA CARTE
+========================= */
+
+.section-navigation {
 position: relative;
 
+top: auto;
 right: auto;
-bottom: auto;
 
-margin: 22px 28px 42px auto;
+transform: none;
 
-width: 58px;
-height: 58px;
+width: fit-content;
 
-animation: section-arrow-move 1.8s ease-in-out infinite;
+margin: 30px 28px 40px auto;
 }
 
-/* =========================
-ANIMATION FLÈCHE COVER
-========================= */
-
-@keyframes arrow-move {
-
-0% {
-transform: translateY(0);
-opacity: .55;
-}
-
-50% {
-transform: translateY(10px);
-opacity: 1;
-}
-
-100% {
-transform: translateY(0);
-opacity: .55;
-}
-
-}
-
-/* =========================
-ANIMATION FLÈCHE SECTION
-========================= */
-
-@keyframes section-arrow-move {
-
-0% {
-transform: translateY(0);
-opacity: .55;
-}
-
-50% {
-transform: translateY(10px);
-opacity: 1;
-}
-
-100% {
-transform: translateY(0);
-opacity: .55;
-}
-
+.section-navigation:hover {
+transform: none;
 }
 
 /* =========================
@@ -342,24 +340,32 @@ border-radius: 18px;
 height: 330px;
 }
 
+/* Navigation cover */
 
-.scroll-arrow {
+.side-navigation {
 right: 12px;
-bottom: 24px;
-
-width: 54px;
-height: 54px;
-
-font-size: 38px;
 }
 
-.section-arrow {
-margin: 18px 12px 36px auto;
+.side-navigation-label {
+font-size: 10px;
+letter-spacing: .06em;
+}
 
-width: 54px;
-height: 54px;
+.side-navigation-arrow {
+width: 44px;
+height: 44px;
+font-size: 30px;
+}
 
-font-size: 38px;
+/* Navigation RSVP */
+
+.section-navigation {
+right: auto;
+
+```
+margin: 22px 12px 34px auto;
+```
+
 }
 
 .form-frame {
