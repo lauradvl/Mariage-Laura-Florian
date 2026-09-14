@@ -1,342 +1,403 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 :root {
-  --lavender: #B8B8FF;
-  --white: #fff;
-  --ink: #7777b8;
+--lavender: #B8B8FF;
+--white: #fff;
+--ink: #7777b8;
 
-  --font-body: "Montserrat", system-ui, sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+--font-body: "Montserrat", system-ui, sans-serif;
 }
 
 * {
   box-sizing: border-box;
-}
+  }
 
 html {
-  scroll-behavior: smooth;
-  background: var(--lavender);
+scroll-behavior: smooth;
+background: var(--lavender);
 }
 
 body {
-  margin: 0;
-  background: var(--lavender);
-  color: var(--white);
-  font-family: var(--font-body);
+margin: 0;
+background: var(--lavender);
+color: var(--white);
+font-family: var(--font-body);
 }
 
 /* =========================
-   COVER
+COVER
 ========================= */
 
 .cover {
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-  background: var(--lavender);
+min-height: 100svh;
+display: grid;
+place-items: center;
+position: relative;
+overflow: hidden;
+background: var(--lavender);
 }
 
 .cover-image {
-  width: 100%;
-  max-width: 760px;
-  height: 100svh;
-  object-fit: contain;
-  display: block;
-  background: transparent;
+width: 100%;
+max-width: 760px;
+height: 100svh;
+object-fit: contain;
+display: block;
+background: transparent;
 }
 
 /* =========================
-   CONTENU
+CONTENU
 ========================= */
 
 .content {
-  padding: 72px 20px 30px;
-  background: var(--lavender);
+padding: 72px 20px 30px;
+background: var(--lavender);
 }
 
 .container {
-  width: min(700px, 100%);
-  margin: auto;
-  text-align: center;
+width: min(700px, 100%);
+margin: auto;
+text-align: center;
 }
 
 p {
-  font-size: clamp(18px, 2.5vw, 21px);
-  line-height: 1.7;
-  margin: 0 0 26px;
+font-size: clamp(18px, 2.5vw, 21px);
+line-height: 1.7;
+margin: 0 0 26px;
 }
 
 /* =========================
-   TYPOGRAPHIE
+INTRODUCTION
 ========================= */
 
 .intro {
-  font-family: var(--font-display);
-  font-size: clamp(21px, 3vw, 27px);
-}
-
-.separator {
-  font-size: 30px;
-  margin: 28px 0;
-}
-
-.closing {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 28px);
-  margin-bottom: 65px;
-}
-
-.rsvp h2 {
-  font-family: var(--font-display);
-  margin: 0 0 8px;
-  font-size: 34px;
-}
-
-.info-card h2,
-.location h2 {
-  font-family: var(--font-display);
-  margin: 0 0 12px;
-  font-size: clamp(28px, 5vw, 36px);
-  font-weight: 500;
-}
-
-.signature {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 500;
-  margin-top: 28px;
+font-size: clamp(18px, 2.5vw, 21px);
 }
 
 /* =========================
-   BOUTONS
+RSVP / TITRES
+========================= */
+
+.rsvp h2 {
+margin: 0 0 8px;
+font-size: 34px;
+font-weight: 600;
+}
+
+/* =========================
+BOUTONS
 ========================= */
 
 .button {
-  display: inline-block;
-  border-radius: 999px;
-  background: white;
-  color: var(--ink);
-  padding: 15px 24px;
-  font-weight: 600;
-  text-decoration: none;
-  margin: 10px 0 44px;
+display: inline-block;
+border-radius: 999px;
+background: white;
+color: var(--ink);
+padding: 15px 24px;
+font-weight: 600;
+text-decoration: none;
+margin: 10px 0 44px;
 }
 
 /* =========================
-   LABELS
+LABELS
 ========================= */
 
 .section-label {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  opacity: .75;
-  margin-bottom: 10px;
+font-size: 13px;
+font-weight: 600;
+letter-spacing: .12em;
+text-transform: uppercase;
+opacity: .75;
+margin-bottom: 10px;
 }
 
 /* =========================
-   CARTES
+CARTES
 ========================= */
 
 .info-card {
-  margin: 55px 0;
-  padding: 32px 24px;
-  background: rgba(255,255,255,.15);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 24px;
-  box-shadow: 0 12px 40px rgba(60,60,130,.08);
+margin: 55px 0;
+padding: 32px 24px;
+background: rgba(255, 255, 255, .15);
+border: 1px solid rgba(255, 255, 255, .25);
+border-radius: 24px;
+box-shadow: 0 12px 40px rgba(60, 60, 130, .08);
 }
 
+/* =========================
+LISTES D'INFORMATIONS
+========================= */
+
 .info-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 28px;
+display: grid;
+gap: 12px;
+margin-top: 28px;
 }
 
 .info-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
-  background: rgba(255,255,255,.15);
-  border-radius: 16px;
-  text-align: left;
+display: flex;
+align-items: center;
+gap: 14px;
+padding: 14px 16px;
+background: rgba(255, 255, 255, .15);
+border-radius: 16px;
+text-align: left;
 }
 
 .info-icon {
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-  display: grid;
-  place-items: center;
-  background: white;
-  color: var(--ink);
-  border-radius: 50%;
+width: 40px;
+height: 40px;
+flex: 0 0 40px;
+display: grid;
+place-items: center;
+background: white;
+color: var(--ink);
+border-radius: 50%;
 }
 
 .info-item strong,
 .info-item span {
-  display: block;
+display: block;
 }
 
 .info-item strong {
-  font-size: 15px;
+font-size: 15px;
 }
 
 .info-item span {
-  font-size: 14px;
-  opacity: .75;
+font-size: 14px;
+opacity: .75;
 }
 
 /* =========================
-   GOOGLE MAPS
+GOOGLE MAPS
 ========================= */
 
 .location {
-  margin: 70px 0;
+margin: 70px 0;
 }
 
 .location-intro {
-  max-width: 580px;
-  margin: 0 auto 28px;
+max-width: 580px;
+margin: 0 auto 28px;
 }
 
 .map-frame {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 20px;
-  background: white;
-  box-shadow: 0 12px 40px rgba(60,60,130,.10);
+width: 100%;
+overflow: hidden;
+border-radius: 20px;
+background: white;
+box-shadow: 0 12px 40px rgba(60, 60, 130, .10);
 }
 
 .map-frame iframe {
-  display: block;
-  width: 100%;
-  height: 380px;
-  border: 0;
+display: block;
+width: 100%;
+height: 380px;
+border: 0;
 }
 
 .map-button {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 13px 22px;
-  background: white;
-  color: var(--ink);
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
+display: inline-block;
+margin-top: 18px;
+padding: 13px 22px;
+background: white;
+color: var(--ink);
+border-radius: 999px;
+font-weight: 600;
+text-decoration: none;
+}
+
+.map-button:hover {
+opacity: .9;
 }
 
 /* =========================
-   ADRESSE
+ADRESSE
 ========================= */
 
 .location-address {
-  margin: 28px 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  font-size: 16px;
+margin: 28px 0 24px;
+display: flex;
+flex-direction: column;
+gap: 3px;
+font-size: 16px;
 }
 
 .location-address span {
-  opacity: .75;
+opacity: .75;
 }
 
 /* =========================
-   RSVP
+FLÈCHES DE NAVIGATION
+========================= */
+
+.scroll-arrow {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 44px;
+height: 44px;
+
+color: white;
+text-decoration: none;
+font-size: 28px;
+font-weight: 400;
+
+opacity: .85;
+
+animation: arrow-bounce 1.8s ease-in-out infinite;
+
+z-index: 2;
+}
+
+.scroll-arrow:hover {
+opacity: 1;
+}
+
+@keyframes arrow-bounce {
+0%,
+100% {
+transform: translate(-50%, 0);
+}
+
+50% {
+transform: translate(-50%, 7px);
+}
+}
+
+/* Flèche entre les sections */
+
+.section-arrow {
+position: relative;
+left: auto;
+bottom: auto;
+transform: none;
+
+margin: -20px auto 45px;
+
+animation-name: section-arrow-bounce;
+}
+
+.section-arrow:hover {
+transform: translateY(3px);
+}
+
+@keyframes section-arrow-bounce {
+0%,
+100% {
+transform: translateY(0);
+}
+
+50% {
+transform: translateY(7px);
+}
+}
+
+/* =========================
+RSVP
 ========================= */
 
 .rsvp {
-  text-align: center;
+text-align: center;
 }
 
 .form-intro {
-  font-size: 16px;
-  margin-bottom: 24px;
+font-size: 16px;
+margin-bottom: 24px;
 }
 
 .form-frame {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 24px;
-  background: #fff;
-  box-shadow: 0 12px 40px rgba(60,60,130,.10);
+width: 100%;
+overflow: hidden;
+border-radius: 24px;
+background: #fff;
+box-shadow: 0 12px 40px rgba(60, 60, 130, .10);
 }
 
 .form-frame iframe {
-  display: block;
-  width: 100%;
-  height: 760px;
-  border: 0;
-  background: #fff;
+display: block;
+width: 100%;
+height: 760px;
+border: 0;
+background: #fff;
 }
 
 .fallback {
-  font-size: 13px;
-  margin-top: 14px;
-  opacity: .8;
+font-size: 13px;
+margin-top: 14px;
+opacity: .8;
 }
 
 .fallback a {
-  color: white;
-  font-weight: 600;
+color: white;
+font-weight: 600;
 }
 
 /* =========================
-   CONCLUSION
+CONCLUSION
 ========================= */
 
 .closing-section {
-  padding-top: 20px;
+padding-top: 20px;
+}
+
+.closing {
+font-size: clamp(18px, 2.5vw, 21px);
+margin-bottom: 65px;
 }
 
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer {
-  padding: 45px 0 15px;
-  opacity: .75;
-  font-size: 13px;
+padding: 45px 0 15px;
+opacity: .75;
+font-size: 13px;
 }
 
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
 
-  .cover-image {
-    width: 100%;
-    height: auto;
-    min-height: 100svh;
-    object-fit: contain;
-    background: transparent;
-  }
-
-  .content {
-    padding-top: 55px;
-    background: var(--lavender);
-  }
-
-  .map-frame {
-    border-radius: 18px;
-  }
-
-  .map-frame iframe {
-    height: 330px;
-  }
-
-  .form-frame {
-    border-radius: 18px;
-  }
-
-  .form-frame iframe {
-    height: 820px;
-  }
+.cover-image {
+width: 100%;
+height: auto;
+min-height: 100svh;
+object-fit: contain;
+background: transparent;
 }
 
+.content {
+padding-top: 55px;
+background: var(--lavender);
+}
+
+.map-frame {
+border-radius: 18px;
+}
+
+.map-frame iframe {
+height: 330px;
+}
+
+.form-frame {
+border-radius: 18px;
+}
+
+.form-frame iframe {
+height: 820px;
+}
+
+}
