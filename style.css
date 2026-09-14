@@ -4,6 +4,7 @@
 --lavender: #B8B8FF;
 --white: #fff;
 --ink: #7777b8;
+
 --font-body: "Montserrat", system-ui, sans-serif;
 }
 
@@ -14,6 +15,7 @@
 html {
 scroll-behavior: smooth;
 background: var(--lavender);
+scroll-padding-top: 0;
 }
 
 body {
@@ -50,15 +52,19 @@ CONTENU
 ========================= */
 
 .content {
-padding: 60px 20px 30px;
+padding: 50px 20px 30px;
 background: var(--lavender);
 }
 
 .container {
 width: min(700px, 100%);
-margin: auto;
+margin: 0 auto;
 text-align: center;
 }
+
+/* =========================
+TEXTE
+========================= */
 
 p {
 font-size: clamp(18px, 2.5vw, 21px);
@@ -66,41 +72,29 @@ line-height: 1.7;
 margin: 0 0 26px;
 }
 
-/* =========================
-INTRODUCTION
-========================= */
-
-.intro-section {
-margin-bottom: 42px;
-}
-
 .intro {
 font-size: clamp(18px, 2.5vw, 21px);
 }
 
 /* =========================
-TITRE RSVP
+BLOC CÉRÉMONIE
 ========================= */
 
-.rsvp h2 {
-margin: 0 0 8px;
-font-size: 34px;
-font-weight: 600;
+.info-card {
+margin: 0;
+padding: 32px 24px;
+background: rgba(255, 255, 255, .15);
+border: 1px solid rgba(255, 255, 255, .25);
+border-radius: 24px;
+box-shadow: 0 12px 40px rgba(60, 60, 130, .08);
 }
 
-/* =========================
-BOUTONS
-========================= */
-
-.button {
-display: inline-block;
-border-radius: 999px;
-background: white;
-color: var(--ink);
-padding: 15px 24px;
-font-weight: 600;
-text-decoration: none;
-margin: 10px 0 44px;
+/*
+L'ancre arrive exactement au début
+du bloc cérémonie.
+*/
+#ceremony {
+scroll-margin-top: 0;
 }
 
 /* =========================
@@ -117,75 +111,8 @@ margin-bottom: 10px;
 }
 
 /* =========================
-BLOC CÉRÉMONIE
-========================= */
-
-.info-card {
-margin: 0;
-padding: 32px 24px;
-background: rgba(255, 255, 255, .15);
-border: 1px solid rgba(255, 255, 255, .25);
-border-radius: 24px;
-box-shadow: 0 12px 40px rgba(60, 60, 130, .08);
-}
-
-/* =========================
-LISTES D'INFORMATIONS
-========================= */
-
-.info-list {
-display: grid;
-gap: 12px;
-margin-top: 28px;
-}
-
-.info-item {
-display: flex;
-align-items: center;
-gap: 14px;
-padding: 14px 16px;
-background: rgba(255, 255, 255, .15);
-border-radius: 16px;
-text-align: left;
-}
-
-.info-icon {
-width: 40px;
-height: 40px;
-flex: 0 0 40px;
-display: grid;
-place-items: center;
-background: white;
-color: var(--ink);
-border-radius: 50%;
-}
-
-.info-item strong,
-.info-item span {
-display: block;
-}
-
-.info-item strong {
-font-size: 15px;
-}
-
-.info-item span {
-font-size: 14px;
-opacity: .75;
-}
-
-/* =========================
 GOOGLE MAPS
 ========================= */
-
-.location {
-margin: 60px 0;
-}
-
-.location-intro {
-max-width: 580px;
-margin: 0 auto 28px;
-}
 
 .map-frame {
 width: 100%;
@@ -218,47 +145,42 @@ opacity: .9;
 }
 
 /* =========================
-ADRESSE
+FLÈCHE
 ========================= */
 
-.location-address {
-margin: 28px 0 24px;
-display: flex;
-flex-direction: column;
-gap: 3px;
-font-size: 16px;
-}
-
-.location-address span {
-opacity: .75;
-}
-
-/* =========================
-FLÈCHE DE LA COVER
-========================= */
+/*
+Flèche principale :
+placée sur le côté droit de la cover.
+*/
 
 .scroll-arrow {
 position: absolute;
-bottom: 24px;
-left: 50%;
+right: 28px;
+bottom: 32px;
 
 display: flex;
 align-items: center;
 justify-content: center;
 
-width: 44px;
-height: 44px;
+width: 58px;
+height: 58px;
 
 color: white;
 text-decoration: none;
-font-size: 28px;
+
+font-size: 40px;
 font-weight: 400;
+line-height: 1;
 
 opacity: .85;
 
-z-index: 2;
+z-index: 10;
 
-animation: cover-arrow-move 1.8s ease-in-out infinite;
+animation: arrow-move 1.8s ease-in-out infinite;
+
+transition:
+opacity .25s ease,
+transform .25s ease;
 }
 
 .scroll-arrow:hover {
@@ -271,12 +193,14 @@ FLÈCHE ENTRE LES SECTIONS
 
 .section-arrow {
 position: relative;
-left: auto;
+
+right: auto;
 bottom: auto;
 
-margin: 26px auto 38px;
+margin: 22px 28px 42px auto;
 
-transform: none;
+width: 58px;
+height: 58px;
 
 animation: section-arrow-move 1.8s ease-in-out infinite;
 }
@@ -285,27 +209,27 @@ animation: section-arrow-move 1.8s ease-in-out infinite;
 ANIMATION FLÈCHE COVER
 ========================= */
 
-@keyframes cover-arrow-move {
+@keyframes arrow-move {
 
 0% {
-transform: translate(-50%, 0);
+transform: translateY(0);
 opacity: .55;
 }
 
 50% {
-transform: translate(-50%, 8px);
+transform: translateY(10px);
 opacity: 1;
 }
 
 100% {
-transform: translate(-50%, 0);
+transform: translateY(0);
 opacity: .55;
 }
 
 }
 
 /* =========================
-ANIMATION FLÈCHE RSVP
+ANIMATION FLÈCHE SECTION
 ========================= */
 
 @keyframes section-arrow-move {
@@ -316,7 +240,7 @@ opacity: .55;
 }
 
 50% {
-transform: translateY(8px);
+transform: translateY(10px);
 opacity: 1;
 }
 
@@ -333,7 +257,12 @@ RSVP
 
 .rsvp {
 text-align: center;
-padding-top: 0;
+}
+
+.rsvp h2 {
+margin: 0 0 8px;
+font-size: 34px;
+font-weight: 600;
 }
 
 .form-intro {
@@ -406,12 +335,7 @@ background: transparent;
 }
 
 .content {
-padding-top: 50px;
-background: var(--lavender);
-}
-
-.intro-section {
-margin-bottom: 35px;
+padding: 45px 16px 25px;
 }
 
 .info-card {
@@ -426,8 +350,34 @@ border-radius: 18px;
 height: 330px;
 }
 
+/*
+Sur mobile, la flèche reste
+sur le côté mais est légèrement
+plus proche du bord.
+*/
+.scroll-arrow {
+right: 12px;
+bottom: 24px;
+
+```
+width: 54px;
+height: 54px;
+
+font-size: 38px;
+```
+
+}
+
 .section-arrow {
-margin: 22px auto 34px;
+margin: 18px 12px 36px auto;
+
+```
+width: 54px;
+height: 54px;
+
+font-size: 38px;
+```
+
 }
 
 .form-frame {
