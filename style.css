@@ -1,1 +1,469 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap'); :root { --lavender:#B8B8FF; --white:#fff; --ink:#7777b8; } * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--lavender); color:var(--white); font-family:"DM Sans",system-ui,sans-serif; } .cover { min-height:100svh; display:grid; place-items:center; position:relative; overflow:hidden; } .cover-image { width:100%; max-width:760px; height:100svh; object-fit:contain; display:block; } .scroll-hint { position:absolute; bottom:18px; left:50%; transform:translateX(-50%); color:white; text-decoration:none; font-size:28px; animation:bounce 1.8s infinite; } @keyframes bounce { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,7px)} } .content { padding:72px 20px 30px; } .container { width:min(700px,100%); margin:auto; text-align:center; } p { font-size:clamp(18px,2.5vw,21px); line-height:1.7; margin:0 0 26px; } .intro { font-size:clamp(21px,3vw,27px); } .separator { font-size:30px; margin:28px 0; } .button { display:inline-block; border-radius:999px; background:white; color:var(--ink); padding:15px 24px; font-weight:600; text-decoration:none; margin:10px 0 44px; } .closing { font-size:clamp(22px,3vw,28px); margin-bottom:65px; } .rsvp { text-align:center; } .rsvp h2 { margin:0 0 8px; font-size:34px; } .form-intro { font-size:16px; margin-bottom:24px; } .form-frame { width:100%; overflow:hidden; border-radius:24px; background:#fff; box-shadow:0 12px 40px rgba(60,60,130,.10); } .form-frame iframe { display:block; width:100%; height:760px; border:0; background:#fff; } .fallback { font-size:13px; margin-top:14px; opacity:.8; } .fallback a { color:white; font-weight:600; } footer { padding:45px 0 15px; opacity:.75; font-size:13px; } /* ========================= NOUVELLES SECTIONS ========================= */ .section-label { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .75; margin-bottom: 10px; } .info-card { margin: 55px 0; padding: 32px 24px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 24px; box-shadow: 0 12px 40px rgba(60,60,130,.08); } .info-card h2, .location h2 { margin: 0 0 12px; font-size: clamp(28px,5vw,36px); font-weight: 500; } .info-list { display: grid; gap: 12px; margin-top: 28px; } .info-item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,.15); border-radius: 16px; text-align: left; } .info-icon { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; background: white; color: var(--ink); border-radius: 50%; } .info-item strong, .info-item span { display: block; } .info-item strong { font-size: 15px; } .info-item span { font-size: 14px; opacity: .75; } /* ========================= GOOGLE MAPS ========================= */ .location { margin: 70px 0; } .location-intro { max-width: 580px; margin: 0 auto 28px; } .map-frame { width: 100%; overflow: hidden; border-radius: 24px; background: white; box-shadow: 0 12px 40px rgba(60,60,130,.10); } .map-frame iframe { display: block; width: 100%; height: 380px; border: 0; } .map-button { display: inline-block; margin-top: 18px; padding: 13px 22px; border-radius: 999px; background: white; color: var(--ink); font-weight: 600; text-decoration: none; } /* ========================= CONCLUSION ========================= */ .closing-section { padding-top: 20px; } .signature { font-size: 22px; font-weight: 500; margin-top: 28px; } /* Adresse */ .location-address { margin: 28px 0 24px; display: flex; flex-direction: column; gap: 3px; font-size: 16px; } .location-address span { opacity: .75; } /* Carte */ .map-frame { width: 100%; overflow: hidden; border-radius: 20px; background: white; box-shadow: 0 12px 40px rgba(60,60,130,.10); } .map-frame iframe { display: block; width: 100%; height: 380px; border: 0; } /* Bouton itinéraire */ .map-button { display: inline-block; margin-top: 18px; padding: 13px 22px; background: white; color: var(--ink); border-radius: 999px; font-weight: 600; text-decoration: none; } /* Mobile */ @media(max-width:600px) { .scroll-hint { bottom: 20px; gap: 12px; } .map-frame { border-radius: 18px; } .map-frame iframe { height: 330px; } } @media(max-width:600px) { .cover-image { width:100%; height:auto; min-height:100svh; object-fit:cover; } .content { padding-top:55px; } .form-frame { border-radius:18px; } .form-frame iframe { height:820px; } }
+```css
+/* =========================
+   POLICES
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+  --lavender:#B8B8FF;
+  --white:#fff;
+  --ink:#7777b8;
+
+  --font-body:"Montserrat",system-ui,sans-serif;
+  --font-display:"Cormorant Garamond",Georgia,serif;
+}
+
+
+/* =========================
+   BASE
+========================= */
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  background:var(--lavender);
+  color:var(--white);
+  font-family:var(--font-body);
+}
+
+
+/* =========================
+   COUVERTURE
+========================= */
+
+.cover {
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.cover-image {
+  width:100%;
+  max-width:760px;
+  height:100svh;
+  object-fit:contain;
+  display:block;
+}
+
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll-hint {
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  text-decoration:none;
+  font-size:28px;
+  animation:bounce 1.8s infinite;
+}
+
+@keyframes bounce {
+  0%,100% {
+    transform:translate(-50%,0)
+  }
+
+  50% {
+    transform:translate(-50%,7px)
+  }
+}
+
+
+/* =========================
+   CONTENU
+========================= */
+
+.content {
+  padding:72px 20px 30px;
+}
+
+.container {
+  width:min(700px,100%);
+  margin:auto;
+  text-align:center;
+}
+
+
+/* =========================
+   TEXTE
+========================= */
+
+p {
+  font-size:clamp(18px,2.5vw,21px);
+  line-height:1.7;
+  margin:0 0 26px;
+}
+
+
+/* Intro : Cormorant Garamond */
+
+.intro {
+  font-family:var(--font-display);
+  font-size:clamp(21px,3vw,27px);
+}
+
+
+/* =========================
+   SÉPARATEUR
+========================= */
+
+.separator {
+  font-family:var(--font-display);
+  font-size:30px;
+  margin:28px 0;
+}
+
+
+/* =========================
+   BOUTON
+========================= */
+
+.button {
+  display:inline-block;
+  border-radius:999px;
+  background:white;
+  color:var(--ink);
+  padding:15px 24px;
+  font-weight:600;
+  text-decoration:none;
+  margin:10px 0 44px;
+}
+
+
+/* =========================
+   CONCLUSION
+========================= */
+
+.closing {
+  font-family:var(--font-display);
+  font-size:clamp(22px,3vw,28px);
+  margin-bottom:65px;
+}
+
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp {
+  text-align:center;
+}
+
+
+/* Titre RSVP : Cormorant Garamond */
+
+.rsvp h2 {
+  font-family:var(--font-display);
+  margin:0 0 8px;
+  font-size:34px;
+}
+
+
+/* Texte formulaire : Montserrat */
+
+.form-intro {
+  font-size:16px;
+  margin-bottom:24px;
+}
+
+.form-frame {
+  width:100%;
+  overflow:hidden;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 12px 40px rgba(60,60,130,.10);
+}
+
+.form-frame iframe {
+  display:block;
+  width:100%;
+  height:760px;
+  border:0;
+  background:#fff;
+}
+
+.fallback {
+  font-size:13px;
+  margin-top:14px;
+  opacity:.8;
+}
+
+.fallback a {
+  color:white;
+  font-weight:600;
+}
+
+
+/* =========================
+   NOUVELLES SECTIONS
+========================= */
+
+.section-label {
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.75;
+  margin-bottom:10px;
+}
+
+
+/* Titres : Cormorant Garamond */
+
+.info-card h2,
+.location h2 {
+  font-family:var(--font-display);
+  margin:0 0 12px;
+  font-size:clamp(28px,5vw,36px);
+  font-weight:500;
+}
+
+
+.info-card {
+  margin:55px 0;
+  padding:32px 24px;
+
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:24px;
+
+  box-shadow:0 12px 40px rgba(60,60,130,.08);
+}
+
+
+.info-list {
+  display:grid;
+  gap:12px;
+  margin-top:28px;
+}
+
+.info-item {
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  padding:14px 16px;
+
+  background:rgba(255,255,255,.15);
+  border-radius:16px;
+
+  text-align:left;
+}
+
+.info-icon {
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+
+  display:grid;
+  place-items:center;
+
+  background:white;
+  color:var(--ink);
+
+  border-radius:50%;
+}
+
+.info-item strong,
+.info-item span {
+  display:block;
+}
+
+.info-item strong {
+  font-size:15px;
+}
+
+.info-item span {
+  font-size:14px;
+  opacity:.75;
+}
+
+
+/* =========================
+   GOOGLE MAPS
+========================= */
+
+.location {
+  margin:70px 0;
+}
+
+.location-intro {
+  max-width:580px;
+  margin:0 auto 28px;
+}
+
+.map-frame {
+  width:100%;
+  overflow:hidden;
+
+  border-radius:24px;
+  background:white;
+
+  box-shadow:0 12px 40px rgba(60,60,130,.10);
+}
+
+.map-frame iframe {
+  display:block;
+  width:100%;
+  height:380px;
+  border:0;
+}
+
+.map-button {
+  display:inline-block;
+
+  margin-top:18px;
+  padding:13px 22px;
+
+  border-radius:999px;
+
+  background:white;
+  color:var(--ink);
+
+  font-weight:600;
+  text-decoration:none;
+}
+
+
+/* =========================
+   CONCLUSION
+========================= */
+
+.closing-section {
+  padding-top:20px;
+}
+
+.signature {
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:500;
+  margin-top:28px;
+}
+
+
+/* =========================
+   ADRESSE
+========================= */
+
+.location-address {
+  margin:28px 0 24px;
+
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+
+  font-size:16px;
+}
+
+.location-address span {
+  opacity:.75;
+}
+
+
+/* =========================
+   CARTE
+========================= */
+
+.map-frame {
+  width:100%;
+  overflow:hidden;
+
+  border-radius:20px;
+  background:white;
+
+  box-shadow:0 12px 40px rgba(60,60,130,.10);
+}
+
+.map-frame iframe {
+  display:block;
+
+  width:100%;
+  height:380px;
+
+  border:0;
+}
+
+
+/* =========================
+   BOUTON ITINÉRAIRE
+========================= */
+
+.map-button {
+  display:inline-block;
+
+  margin-top:18px;
+  padding:13px 22px;
+
+  background:white;
+  color:var(--ink);
+
+  border-radius:999px;
+
+  font-weight:600;
+  text-decoration:none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+  .scroll-hint {
+    bottom:20px;
+    gap:12px;
+  }
+
+  .map-frame {
+    border-radius:18px;
+  }
+
+  .map-frame iframe {
+    height:330px;
+  }
+
+}
+
+
+@media(max-width:600px) {
+
+  .cover-image {
+    width:100%;
+    height:auto;
+    min-height:100svh;
+    object-fit:cover;
+  }
+
+  .content {
+    padding-top:55px;
+  }
+
+  .form-frame {
+    border-radius:18px;
+  }
+
+  .form-frame iframe {
+    height:820px;
+  }
+
+}
+```
