@@ -53,7 +53,7 @@
       background: transparent;
     }
 
-    ```css
+```css
 /* =========================
    NAVIGATION VERTICALE
 ========================= */
@@ -61,7 +61,7 @@
 .side-nav {
   position: fixed;
   top: 50%;
-  right: 30px;
+  right: 28px;
   transform: translateY(-50%);
   z-index: 100;
 
@@ -72,7 +72,7 @@
   width: 125px;
 }
 
-/* Ligne verticale continue */
+/* Ligne verticale */
 
 .side-nav-line {
   position: absolute;
@@ -84,7 +84,7 @@
   background: rgba(119, 119, 184, 0.28);
 }
 
-/* Indicateur qui glisse */
+/* Point indiquant la section active */
 
 .side-nav-indicator {
   position: absolute;
@@ -97,12 +97,15 @@
   background: var(--ink);
 
   transform: translateY(-50%);
+
   transition:
     top 0.45s cubic-bezier(.22, .61, .36, 1),
     transform 0.3s ease;
 
   box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75);
 }
+
+/* Liste */
 
 .side-nav-list {
   position: relative;
@@ -116,12 +119,14 @@
   width: 100%;
 }
 
+/* Liens */
+
 .side-nav-item {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  /* Plus d'espace entre le texte et la ligne */
+  /* espace entre le texte et la ligne */
   padding-right: 18px;
 
   color: var(--ink);
@@ -143,12 +148,20 @@
   opacity: 1;
 }
 
+/* Texte desktop */
+
 .side-nav-label {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* Icônes */
+
+.side-nav-icon {
+  display: none;
 }
 
 
@@ -158,330 +171,110 @@
 
 @media (max-width: 600px) {
 
-  .cover-image {
-    width: 100%;
-    height: auto;
-    min-height: 100svh;
-    object-fit: contain;
-    background: transparent;
-  }
-
   /*
-     On garde une petite zone libre à droite
-     pour que le contenu ne passe jamais sous la navigation.
+     Navigation toujours à droite,
+     centrée verticalement.
   */
-  .content {
-    padding: 45px 58px 25px 16px;
-  }
-
-  .info-card {
-    padding: 28px 18px;
-  }
-
-  .map-frame {
-    border-radius: 18px;
-  }
-
-  .map-frame iframe {
-    height: 330px;
-  }
-
-
-  /* =========================
-     NAVIGATION MOBILE
-  ========================= */
 
   .side-nav {
-    right: 8px;
-    width: 76px;
+    right: 9px;
+    width: 30px;
   }
 
   .side-nav-list {
-    height: 100px;
+    height: 112px;
+  }
+
+  /*
+     Sur mobile, on affiche uniquement
+     les icônes.
+  */
+
+  .side-nav-label {
+    display: none;
   }
 
   .side-nav-item {
-    /* Espace suffisant entre texte et ligne */
-    padding-right: 13px;
+    width: 30px;
+    height: 30px;
+
+    padding-right: 8px;
+
+    justify-content: flex-end;
   }
 
-  .side-nav-label {
-    font-size: 8px;
-    letter-spacing: 0.055em;
+  .side-nav-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+
+    font-size: 14px;
+    line-height: 1;
+
+    color: var(--ink);
   }
+
+  /* Maison */
+
+  .home-icon {
+    font-size: 16px;
+  }
+
+  /* Localisation */
+
+  .location-icon {
+    font-size: 17px;
+  }
+
+  /* RSVP */
+
+  .rsvp-icon {
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /*
+     Ligne plus discrète sur mobile
+     mais toujours parfaitement visible.
+  */
 
   .side-nav-line {
     right: 0;
+    top: 5px;
+    bottom: 5px;
   }
+
+  /*
+     Point actif légèrement plus petit
+     pour rester élégant sur téléphone.
+  */
 
   .side-nav-indicator {
     right: -2.5px;
+
     width: 6px;
     height: 6px;
+
+    box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75);
   }
 
+  /*
+     On ne réserve PAS une grosse marge au contenu.
+     La navigation est suffisamment étroite pour
+     ne plus empiéter visuellement sur la page.
+  */
 
-  .rsvp {
-    margin-top: 50px;
-  }
-
-  .form-frame {
-    border-radius: 18px;
-  }
-
-  .form-frame iframe {
-    height: 820px;
-  }
-
-  .closing-section {
-    padding-top: 40px;
+  .content {
+    padding: 45px 16px 25px;
   }
 }
 
-
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    .content {
-      padding: 50px 20px 30px;
-      background: var(--lavender);
-    }
-
-    .container {
-      width: min(700px, 100%);
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    p {
-      font-size: clamp(18px, 2.5vw, 21px);
-      line-height: 1.7;
-      margin: 0 0 26px;
-    }
-
-    /* =========================
-       CEREMONIE
-    ========================= */
-
-    .info-card {
-      margin: 0;
-      padding: 32px 24px;
-
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 24px;
-
-      box-shadow: 0 12px 40px rgba(60, 60, 130, 0.08);
-    }
-
-    #ceremony {
-      scroll-margin-top: 30px;
-    }
-
-    .section-label {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.75;
-      margin-bottom: 10px;
-    }
-
-    /* =========================
-       CARTE
-    ========================= */
-
-    .map-frame {
-      width: 100%;
-      overflow: hidden;
-
-      border-radius: 20px;
-      background: white;
-
-      box-shadow: 0 12px 40px rgba(60, 60, 130, 0.10);
-    }
-
-    .map-frame iframe {
-      display: block;
-      width: 100%;
-      height: 380px;
-
-      border: 0;
-    }
-
-    .map-button {
-      display: inline-block;
-
-      margin-top: 18px;
-      padding: 13px 22px;
-
-      background: white;
-      color: var(--ink);
-
-      border-radius: 999px;
-
-      font-weight: 600;
-      text-decoration: none;
-
-      transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-    }
-
-    .map-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    /* =========================
-       RSVP
-    ========================= */
-
-    .rsvp {
-      text-align: center;
-      margin-top: 65px;
-    }
-
-    .rsvp h2 {
-      margin: 0 0 8px;
-
-      font-size: 34px;
-      font-weight: 600;
-    }
-
-    .form-intro {
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-
-    .form-frame {
-      width: 100%;
-      overflow: hidden;
-
-      border-radius: 24px;
-      background: #fff;
-
-      box-shadow: 0 12px 40px rgba(60, 60, 130, 0.10);
-    }
-
-    .form-frame iframe {
-      display: block;
-      width: 100%;
-      height: 760px;
-
-      border: 0;
-      background: #fff;
-    }
-
-    .fallback {
-      font-size: 13px;
-      margin-top: 14px;
-      opacity: 0.8;
-    }
-
-    .fallback a {
-      color: white;
-      font-weight: 600;
-    }
-
-    /* =========================
-       FIN
-    ========================= */
-
-    .closing-section {
-      padding-top: 55px;
-    }
-
-    .closing {
-      font-size: clamp(18px, 2.5vw, 21px);
-      margin-bottom: 65px;
-    }
-
-    footer {
-      padding: 45px 0 15px;
-
-      opacity: 0.75;
-      font-size: 13px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
-
-      .cover-image {
-        width: 100%;
-        height: auto;
-        min-height: 100svh;
-        object-fit: contain;
-        background: transparent;
-      }
-
-      .content {
-        padding: 45px 16px 25px;
-      }
-
-      .info-card {
-        padding: 28px 18px;
-      }
-
-      .map-frame {
-        border-radius: 18px;
-      }
-
-      .map-frame iframe {
-        height: 330px;
-      }
-
-      /* Navigation plus discrète sur mobile */
-
-      .side-nav {
-        right: 10px;
-        width: 82px;
-      }
-
-      .side-nav-list {
-        height: 100px;
-      }
-
-      .side-nav-label {
-        font-size: 9px;
-        letter-spacing: 0.06em;
-      }
-
-      .side-nav-item {
-        gap: 10px;
-      }
-
-      .side-nav-line {
-        right: 2.5px;
-      }
-
-      .side-nav-indicator {
-        right: -0.5px;
-        width: 6px;
-        height: 6px;
-      }
-
-      .rsvp {
-        margin-top: 50px;
-      }
-
-      .form-frame {
-        border-radius: 18px;
-      }
-
-      .form-frame iframe {
-        height: 820px;
-      }
-
-      .closing-section {
-        padding-top: 40px;
-      }
-    }
   </style>
 </head>
 
@@ -493,29 +286,49 @@
          NAVIGATION
     ========================= -->
 
-    <nav class="side-nav" aria-label="Navigation de l'invitation">
+<nav class="side-nav" aria-label="Navigation de l'invitation">
 
-      <div class="side-nav-line"></div>
+  <div class="side-nav-line"></div>
 
-      <div class="side-nav-indicator" id="sideNavIndicator"></div>
+  <div class="side-nav-indicator" id="sideNavIndicator"></div>
 
-      <div class="side-nav-list">
+  <div class="side-nav-list">
 
-        <a href="#top" class="side-nav-item active" data-section="top">
-          <span class="side-nav-label">Accueil</span>
-        </a>
+    <a href="#top"
+       class="side-nav-item active"
+       data-section="top"
+       aria-label="Accueil">
 
-        <a href="#ceremony" class="side-nav-item" data-section="ceremony">
-          <span class="side-nav-label">Lieu</span>
-        </a>
+      <span class="side-nav-icon home-icon" aria-hidden="true">⌂</span>
+      <span class="side-nav-label">Accueil</span>
 
-        <a href="#rsvp" class="side-nav-item" data-section="rsvp">
-          <span class="side-nav-label">RSVP</span>
-        </a>
+    </a>
 
-      </div>
+    <a href="#ceremony"
+       class="side-nav-item"
+       data-section="ceremony"
+       aria-label="Lieu">
 
-    </nav>
+      <span class="side-nav-icon location-icon" aria-hidden="true">⌖</span>
+      <span class="side-nav-label">Lieu</span>
+
+    </a>
+
+    <a href="#rsvp"
+       class="side-nav-item"
+       data-section="rsvp"
+       aria-label="RSVP">
+
+      <span class="side-nav-icon rsvp-icon" aria-hidden="true">R</span>
+      <span class="side-nav-label">RSVP</span>
+
+    </a>
+
+  </div>
+
+</nav>
+
+
 
 
     <!-- =========================
