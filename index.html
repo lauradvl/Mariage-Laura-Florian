@@ -259,8 +259,8 @@
       .rsvp-icon { font-family: Georgia, serif; font-size: 12px; font-weight: 600; letter-spacing: 0; }
       /* Ligne plus discrète sur mobile mais toujours parfaitement visible. */
       .side-nav-line { right: 0; top: 5px; bottom: 5px; }
-      /* Point actif légèrement plus petit pour rester élégant sur téléphone. */
-      .side-nav-indicator { right: -2.5px; width: 6px; height: 6px; box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75); }
+      /* Marker retiré sur mobile : l'icône active (opacité pleine) suffit à indiquer la section. */
+      .side-nav-indicator { display: none; }
       /* On ne réserve PAS une grosse marge au contenu. La navigation est suffisamment étroite pour ne plus empiéter visuellement sur la page. */
       .content { padding: 45px 16px 25px; }
     }
@@ -310,7 +310,7 @@
            data-section="rsvp"
            aria-label="RSVP">
 
-          <span class="side-nav-icon rsvp-icon" aria-hidden="true">💌</span>
+          <span class="side-nav-icon rsvp-icon" aria-hidden="true">📫</span>
           <span class="side-nav-label">RSVP</span>
 
         </a>
