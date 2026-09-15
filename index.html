@@ -9,7 +9,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
     :root {
-      --lavender: #b8b8ffff;
+      --lavender: #b8b8ff;
       --white: #fff;
       --ink: #7777b8;
       --font-body: "Montserrat", system-ui, sans-serif;
@@ -56,20 +56,18 @@
     /* =========================
        NAVIGATION VERTICALE
     ========================= */
-.side-nav { position: fixed; top: 50%; right: 28px; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; align-items: flex-end; width: 125px; }
+    .side-nav { position: fixed; top: 50%; right: 28px; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; align-items: flex-end; width: 125px; }
 
     /* Ligne verticale continue */
-
     .side-nav-line { position: absolute; top: 7px; bottom: 7px; right: 0; width: 1px; background: rgba(119, 119, 184, 0.28); }
 
     /* Indicateur qui glisse */
-
     .side-nav-indicator { position: absolute; right: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); transform: translateY(-50%); transition: top 0.45s cubic-bezier(.22, .61, .36, 1), transform 0.3s ease; box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75); }
 
     .side-nav-list { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; height: 110px; width: 100%; }
 
-    .side-nav-item { display: flex; align-items: center; justify-content: flex-end; /* espace entre le texte et la ligne */ padding-right: 18px; color: var(--ink); text-decoration: none; opacity: 0.45; transition: opacity 0.3s ease, transform 0.3s ease; } 
-    .side-nav-item:hover { opacity: 1; transform: translateX(-3px); } 
+    .side-nav-item { display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; color: var(--ink); text-decoration: none; opacity: 0.45; transition: opacity 0.3s ease, transform 0.3s ease; }
+    .side-nav-item:hover { opacity: 1; transform: translateX(-3px); }
     .side-nav-item.active { opacity: 1; }
 
     .side-nav-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
@@ -245,19 +243,26 @@
        MOBILE
     ========================= */
 
-   @media (max-width: 600px) { 
-     /* Navigation toujours à droite, centrée verticalement. */ 
-     .side-nav { right: 9px; width: 30px; } 
-     .side-nav-list { height: 112px; } /* Sur mobile, on affiche uniquement les icônes. */ 
-     .side-nav-label { display: none; } 
-     .side-nav-item { width: 30px; height: 30px; padding-right: 8px; justify-content: flex-end; } 
-     .side-nav-icon { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; font-size: 14px; line-height: 1; color: var(--ink); } /* Maison */ 
-     .home-icon { font-size: 16px; } /* Localisation */ 
-     .location-icon { font-size: 17px; } /* RSVP */ 
-     .rsvp-icon { font-family: Georgia, serif; font-size: 12px; font-weight: 600; letter-spacing: 0; } /* Ligne plus discrète sur mobile mais toujours parfaitement visible. */ 
-     .side-nav-line { right: 0; top: 5px; bottom: 5px; } /* Point actif légèrement plus petit pour rester élégant sur téléphone. */ 
-     .side-nav-indicator { right: -2.5px; width: 6px; height: 6px; box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75); } /* On ne réserve PAS une grosse marge au contenu. La navigation est suffisamment étroite pour ne plus empiéter visuellement sur la page. */ 
-     .content { padding: 45px 16px 25px; } }
+    @media (max-width: 600px) {
+      /* Navigation toujours à droite, centrée verticalement. */
+      .side-nav { right: 9px; width: 30px; }
+      .side-nav-list { height: 112px; }
+      /* Sur mobile, on affiche uniquement les icônes. */
+      .side-nav-label { display: none; }
+      .side-nav-item { width: 30px; height: 30px; padding-right: 8px; justify-content: flex-end; }
+      .side-nav-icon { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; font-size: 14px; line-height: 1; color: var(--ink); }
+      /* Maison */
+      .home-icon { font-size: 16px; }
+      /* Localisation */
+      .location-icon { font-size: 17px; }
+      /* RSVP */
+      .rsvp-icon { font-family: Georgia, serif; font-size: 12px; font-weight: 600; letter-spacing: 0; }
+      /* Ligne plus discrète sur mobile mais toujours parfaitement visible. */
+      .side-nav-line { right: 0; top: 5px; bottom: 5px; }
+      /* Point actif légèrement plus petit pour rester élégant sur téléphone. */
+      .side-nav-indicator { right: -2.5px; width: 6px; height: 6px; box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75); }
+      /* On ne réserve PAS une grosse marge au contenu. La navigation est suffisamment étroite pour ne plus empiéter visuellement sur la page. */
+      .content { padding: 45px 16px 25px; }
     }
   </style>
 
@@ -272,47 +277,47 @@
          NAVIGATION
     ========================= -->
 
-<nav class="side-nav" aria-label="Navigation de l'invitation">
+    <nav class="side-nav" aria-label="Navigation de l'invitation">
 
-  <div class="side-nav-line"></div>
+      <div class="side-nav-line"></div>
 
-  <div class="side-nav-indicator" id="sideNavIndicator"></div>
+      <div class="side-nav-indicator" id="sideNavIndicator"></div>
 
-  <div class="side-nav-list">
+      <div class="side-nav-list">
 
-    <a href="#top"
-       class="side-nav-item active"
-       data-section="top"
-       aria-label="Accueil">
+        <a href="#top"
+           class="side-nav-item active"
+           data-section="top"
+           aria-label="Accueil">
 
-      <span class="side-nav-icon home-icon" aria-hidden="true">⌂</span>
-      <span class="side-nav-label">Accueil</span>
+          <span class="side-nav-icon home-icon" aria-hidden="true">⌂</span>
+          <span class="side-nav-label">Accueil</span>
 
-    </a>
+        </a>
 
-    <a href="#ceremony"
-       class="side-nav-item"
-       data-section="ceremony"
-       aria-label="Lieu">
+        <a href="#ceremony"
+           class="side-nav-item"
+           data-section="ceremony"
+           aria-label="Lieu">
 
-      <span class="side-nav-icon location-icon" aria-hidden="true">⌖</span>
-      <span class="side-nav-label">Lieu</span>
+          <span class="side-nav-icon location-icon" aria-hidden="true">⌖</span>
+          <span class="side-nav-label">Lieu</span>
 
-    </a>
+        </a>
 
-    <a href="#rsvp"
-       class="side-nav-item"
-       data-section="rsvp"
-       aria-label="RSVP">
+        <a href="#rsvp"
+           class="side-nav-item"
+           data-section="rsvp"
+           aria-label="RSVP">
 
-      <span class="side-nav-icon rsvp-icon" aria-hidden="true">R</span>
-      <span class="side-nav-label">RSVP</span>
+          <span class="side-nav-icon rsvp-icon" aria-hidden="true">R</span>
+          <span class="side-nav-label">RSVP</span>
 
-    </a>
+        </a>
 
-  </div>
+      </div>
 
-</nav>
+    </nav>
 
 
 
@@ -351,20 +356,20 @@
             <strong>la Ferme Lou Méou</strong>.
           </p>
 
-        <div class="map-frame">
-          <iframe
-            src="https://www.google.com/maps?q=788%20Chemin%20du%20Méou%2C%20Lauris%2C%20France&z=9&output=embed"
-            title="Lieu du mariage — Ferme Lou Méou, Lauris"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
+          <div class="map-frame">
+            <iframe
+              src="https://www.google.com/maps?q=788%20Chemin%20du%20M%C3%A9ou%2C%20Lauris%2C%20France&z=15&output=embed"
+              title="Lieu du mariage — Ferme Lou Méou, Lauris"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
 
 
           <a
             class="map-button"
-            href="https://www.google.com/maps/search/?api=1&query=788+Chemin+du+Méou+Lauris+France"
+            href="https://www.google.com/maps/search/?api=1&query=788%20Chemin%20du%20M%C3%A9ou%20Lauris%20France"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -384,7 +389,7 @@
 
           <p class="form-intro">
             Merci de nous confirmer votre présence
-            avant le <strong>XX</strong>.
+            avant le <strong>[DATE LIMITE À COMPLÉTER]</strong>.
           </p>
 
           <div class="form-frame">
