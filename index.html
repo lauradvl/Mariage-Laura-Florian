@@ -53,99 +53,192 @@
       background: transparent;
     }
 
-    /* =========================
-       NAVIGATION VERTICALE
-    ========================= */
+    ```css
+/* =========================
+   NAVIGATION VERTICALE
+========================= */
 
-    .side-nav {
-      position: fixed;
-      top: 50%;
-      right: 28px;
-      transform: translateY(-50%);
-      z-index: 100;
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  z-index: 100;
 
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
-      width: 105px;
-    }
+  width: 125px;
+}
 
-    /* Ligne verticale continue */
+/* Ligne verticale continue */
 
-    .side-nav-line {
-      position: absolute;
-      top: 7px;
-      bottom: 7px;
-      right: 3px;
+.side-nav-line {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  right: 0;
 
-      width: 1px;
-      background: rgba(119, 119, 184, 0.28);
-    }
+  width: 1px;
+  background: rgba(119, 119, 184, 0.28);
+}
 
-    /* Indicateur qui glisse */
+/* Indicateur qui glisse */
 
-    .side-nav-indicator {
-      position: absolute;
-      right: 0;
+.side-nav-indicator {
+  position: absolute;
+  right: -3px;
 
-      width: 7px;
-      height: 7px;
+  width: 7px;
+  height: 7px;
 
-      border-radius: 50%;
-      background: var(--ink);
+  border-radius: 50%;
+  background: var(--ink);
 
-      transform: translateY(-50%);
-      transition: top 0.45s cubic-bezier(.22, .61, .36, 1),
-                  transform 0.3s ease;
+  transform: translateY(-50%);
+  transition:
+    top 0.45s cubic-bezier(.22, .61, .36, 1),
+    transform 0.3s ease;
 
-      box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75);
-    }
+  box-shadow: 0 0 0 3px rgba(184, 184, 255, 0.75);
+}
 
-    .side-nav-list {
-      position: relative;
-      z-index: 2;
+.side-nav-list {
+  position: relative;
+  z-index: 2;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-      height: 110px;
-      width: 100%;
-    }
+  height: 110px;
+  width: 100%;
+}
 
-    .side-nav-item {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 14px;
+.side-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-      color: var(--ink);
-      text-decoration: none;
+  /* Plus d'espace entre le texte et la ligne */
+  padding-right: 18px;
 
-      opacity: 0.45;
+  color: var(--ink);
+  text-decoration: none;
 
-      transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-    }
+  opacity: 0.45;
 
-    .side-nav-item:hover {
-      opacity: 1;
-      transform: translateX(-3px);
-    }
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
 
-    .side-nav-item.active {
-      opacity: 1;
-    }
+.side-nav-item:hover {
+  opacity: 1;
+  transform: translateX(-3px);
+}
 
-    .side-nav-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
+.side-nav-item.active {
+  opacity: 1;
+}
+
+.side-nav-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .cover-image {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    object-fit: contain;
+    background: transparent;
+  }
+
+  /*
+     On garde une petite zone libre à droite
+     pour que le contenu ne passe jamais sous la navigation.
+  */
+  .content {
+    padding: 45px 58px 25px 16px;
+  }
+
+  .info-card {
+    padding: 28px 18px;
+  }
+
+  .map-frame {
+    border-radius: 18px;
+  }
+
+  .map-frame iframe {
+    height: 330px;
+  }
+
+
+  /* =========================
+     NAVIGATION MOBILE
+  ========================= */
+
+  .side-nav {
+    right: 8px;
+    width: 76px;
+  }
+
+  .side-nav-list {
+    height: 100px;
+  }
+
+  .side-nav-item {
+    /* Espace suffisant entre texte et ligne */
+    padding-right: 13px;
+  }
+
+  .side-nav-label {
+    font-size: 8px;
+    letter-spacing: 0.055em;
+  }
+
+  .side-nav-line {
+    right: 0;
+  }
+
+  .side-nav-indicator {
+    right: -2.5px;
+    width: 6px;
+    height: 6px;
+  }
+
+
+  .rsvp {
+    margin-top: 50px;
+  }
+
+  .form-frame {
+    border-radius: 18px;
+  }
+
+  .form-frame iframe {
+    height: 820px;
+  }
+
+  .closing-section {
+    padding-top: 40px;
+  }
+}
+
+
 
     /* =========================
        CONTENT
